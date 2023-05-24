@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Question from './Question';
+import ColumnContainer from './Record';
+import { data } from './data';
 
 function App() {
+  const [activeQuestion, setActiveQuestion] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Hội thi tuyên truyền công nghệ số</h1>
+      <div className='container'>
+        {data.map((info) => (
+          <Question
+            key={info.key}
+            info={info}
+            questionNumber={info.key}
+            activeQuestion={activeQuestion}
+            setActiveQuestion={setActiveQuestion}
+            dataCount={data.length}
+          />
+        ))}
+        <ColumnContainer />
+      </div>
+    </>
   );
 }
 
