@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Timer = ({ time, setTime, isActive, setIsActive }) => {
+const Timer = ({ time, setTime, isActive, setIsActive, audioRef }) => {
   useEffect(() => {
     let interval = null;
 
@@ -12,6 +12,9 @@ const Timer = ({ time, setTime, isActive, setIsActive }) => {
             setIsActive(false);
             return prevTime;
           } else {
+            if (prevTime === 8) {
+              playSound(); // Play sound when 8 seconds remaining
+            }
             return prevTime - 1;
           }
         });
@@ -33,9 +36,16 @@ const Timer = ({ time, setTime, isActive, setIsActive }) => {
     return `${minutes}:${seconds}`;
   };
 
+  const playSound = () => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  };
+
   return (
     <div>
       <h1 style={{ color: 'orange' }}>{formatTime(time)}</h1>
+      <audio ref={audioRef} src='/ticking.mp3' />
     </div>
   );
 };
