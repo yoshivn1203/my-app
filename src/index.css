@@ -12,18 +12,17 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .container {
   margin: 0 auto;
-  margin-top: 90px;
+  margin-top: 20px;
   width: 90%;
   max-width: 1080px;
   display: flex;
   align-items: start;
   gap: 60px;
-  min-height: 100vh;
 }
 
 .question-container {
@@ -62,6 +61,11 @@ h1 {
 .answer-option {
   padding: 10px;
   cursor: pointer;
+}
+
+.answer-option:hover {
+  background-color: rgb(76, 247, 195, 0.1);
+  border-radius: 10px;
 }
 
 .question-bottom {
@@ -159,6 +163,30 @@ button:hover {
   text-decoration: none;
 }
 
+.btn-grad-2 {
+  background-image: linear-gradient(
+    to right,
+    #f857a6 0%,
+    #ff5858 51%,
+    #f857a6 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+}
+
+.btn-grad-2:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
 .button-group {
   display: flex;
   justify-content: center;
@@ -171,4 +199,10 @@ button:hover {
   padding: 0 5px;
   border-radius: 5px;
   width: 20px;
+}
+
+.reset {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
 }

@@ -5,7 +5,9 @@ const MultipleChoiceQuestion = ({
   questionNumber,
   activeQuestion,
   setActiveQuestion,
-  dataCount
+  dataCount,
+  setTime,
+  setIsActive
 }) => {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
 
@@ -72,7 +74,11 @@ const MultipleChoiceQuestion = ({
           Hiển thị đáp án
         </button>
         <button
-          onClick={() => setActiveQuestion(questionNumber + 1)}
+          onClick={() => {
+            setActiveQuestion(questionNumber + 1);
+            setTime(90);
+            setIsActive(true);
+          }}
           className={`btn-grad ${
             activeQuestion === questionNumber ? 'show' : ''
           }`}
