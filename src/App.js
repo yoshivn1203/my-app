@@ -3,6 +3,7 @@ import Question from './Question';
 import ColumnContainer from './Record';
 import Timer from './Timer';
 import { data } from './data';
+import banner from './image/baner.png';
 
 function App() {
   const [time, setTime] = useState(15);
@@ -15,7 +16,10 @@ function App() {
     <>
       {showIntro && (
         <div className='intro'>
-          <h1>Hội thi tuyên truyền công nghệ số</h1>
+          <h1>Hội Thi Tuyên Truyền Công Nghệ Số</h1>
+          <div className='banner'>
+            <img src={banner} alt='banner' />
+          </div>
           <button
             className='btn-grad-2'
             onClick={() => {
