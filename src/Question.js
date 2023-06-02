@@ -43,6 +43,7 @@ const MultipleChoiceQuestion = ({
       }`}
     >
       <div className='question-top'>
+        {info.sub && <p style={{ color: 'yellow' }}>( {info.sub} )</p>}
         <h3 className='question-prompt'>
           {questionNumber + 1}/ {info.question}
         </h3>
@@ -74,14 +75,16 @@ const MultipleChoiceQuestion = ({
           >
             <p>C. {info.answers[2]}</p>
           </div>
-          <div
-            className={`answer-option ${
-              info.correctAnswer === 3 ? 'correct-answer' : ''
-            } ${showError[3] === 1 ? 'wrong-answer' : ''}`}
-            onClick={() => handleSelectAnswer(3)}
-          >
-            <p>D. {info.answers[3]}</p>
-          </div>
+          {info.answers[3] && (
+            <div
+              className={`answer-option ${
+                info.correctAnswer === 3 ? 'correct-answer' : ''
+              } ${showError[3] === 1 ? 'wrong-answer' : ''}`}
+              onClick={() => handleSelectAnswer(3)}
+            >
+              <p>D. {info.answers[3]}</p>
+            </div>
+          )}
         </div>
       </div>
 

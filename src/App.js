@@ -26,6 +26,7 @@ function App() {
               setShowIntro(false);
               setIsActive(true);
               setTime(15);
+              setActiveQuestion(0);
             }}
           >
             Bắt đầu
@@ -34,7 +35,7 @@ function App() {
       )}
       {!showIntro && (
         <div className='content'>
-          <h1>Hội thi tuyên truyền công nghệ số</h1>
+          <h1>Hội Thi Tuyên Truyền Công Nghệ Số</h1>
           <Timer
             time={time}
             setTime={setTime}
@@ -56,6 +57,7 @@ function App() {
                 audioRef={audioRef}
               />
             ))}
+
             <ColumnContainer />
           </div>
           <div className='reset'>
